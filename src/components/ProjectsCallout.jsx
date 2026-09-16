@@ -30,7 +30,7 @@ export default function ProjectsCallout({
 
         <button
           onClick={onButtonClick}
-          className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-medium text-sm transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer bg-gradient-to-r from-[#6b2c45] via-[#8c3a52] to-[#df92a2] shadow-[0_0_25px_rgba(223,146,162,0.3)] hover:shadow-[0_0_35px_rgba(223,146,162,0.5)] border border-pink-300/20"
+          className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-medium text-sm transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer bg-gradient-to-r from-[#FC64B6] via-[#EB83AA] to-[#FC64B6] shadow-[0_0_25px_rgba(223,146,162,0.3)] hover:shadow-[0_0_35px_rgba(223,146,162,0.5)] border border-pink-300/20"
         >
           <span>{buttonText}</span>
 

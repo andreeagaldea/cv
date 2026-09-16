@@ -5,7 +5,7 @@ export default function ProjectCard({ project }) {
 
     return (
         <div
-            className={`bg-white/5 border border-white/10 rounded-2xl p-3 md:p-6 flex flex-col justify-between space-y-4 hover:border-pink-500/30 transition-all duration-300 ${isFullWidth ? 'md:col-span-2' : ''
+            className={`bg-[#0b131b]/80 border border-white/10 rounded-2xl p-3 md:p-6 flex flex-col justify-between space-y-4 hover:border-pink-500/30 transition-all duration-300 hover:bg-[#0f1720] ${isFullWidth ? 'md:col-span-2' : ''
                 }`}
         >
             <div className="space-y-4">

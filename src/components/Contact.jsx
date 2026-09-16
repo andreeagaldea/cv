@@ -99,7 +99,7 @@ export default function Contact({
             <button
               type="button"
               disabled
-              className="relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white/80 font-medium text-sm bg-gradient-to-r from-[#6b2c45]/60 via-[#8c3a52]/60 to-[#df92a2]/60 border border-pink-300/10 cursor-not-allowed opacity-60 shadow-[0_0_20px_rgba(223,146,162,0.15)]"
+              className="relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white/80 font-medium text-sm bg-gradient-to-r from-[#FC64B6] via-[#EB83AA] to-[#FC64B6] border border-pink-300/10 cursor-not-allowed opacity-60 shadow-[0_0_20px_rgba(223,146,162,0.15)]"
             >
               <span>Send Message</span>
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

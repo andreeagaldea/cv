@@ -9,7 +9,7 @@ export default function Projects() {
   const personalProjects = projectsData.personal || [];
 
   return (
-    <div className="min-h-screen bg-[#0b0f17] text-gray-200 px-4 py-8 sm:px-8 lg:px-16 font-sans">
+    <div className="min-h-screen text-gray-200 px-4 py-8 sm:px-8 lg:px-16 font-sans">
       <div className="max-w-6xl mx-auto space-y-12">
 
         <div className="sticky top-0 z-50 py-4 bg-[#0b0f17]/80 backdrop-blur-md border-b border-white/5 -mx-4 px-4 sm:-mx-8 sm:px-8 lg:-mx-16 lg:px-16 mb-6">
@@ -84,7 +84,7 @@ export default function Projects() {
               ))}
             </div>
           ) : (
-            <div className="bg-white/5 border border-dashed border-white/10 rounded-2xl p-8 text-center">
+            <div className="bg-[#0b131b]/80 border border-dashed border-white/10 rounded-2xl p-8 text-center">
               <p className="text-sm font-mono text-gray-400">
                 Currently working on new personal projects. Coming soon!
               </p>

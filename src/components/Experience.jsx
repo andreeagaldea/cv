@@ -15,7 +15,7 @@ export default function Experience({ items }) {
         {items?.map((item) => (
           <div
             key={item.id}
-            className="w-full bg-[#0b131b]/80 border border-white/5 rounded-2xl p-4 md:p-6 sm:p-8 text-left transition-all duration-300 hover:border-white/10 hover:bg-[#0f1720]"
+            className="w-full bg-[#0b131b]/80 border border-white/5 rounded-2xl p-4 md:p-6 sm:p-8 text-left transition-all duration-300 hover:border-pink-500/30 hover:bg-[#0f1720]"
           >
 
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">

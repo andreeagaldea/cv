@@ -15,7 +15,7 @@ export const cvData = {
       phone: "+40734191330",
       github: "https://github.com/andreeagaldea",
       linkedin: "https://www.linkedin.com/in/andreea-aldea-363896aa/",
-      cv: "/CV-Georgiana-Andreea-Aldea.pdf"
+      cv: "/cv/CV-AndreeaAldea.pdf"
     }
   },
   skills: [

@@ -15,7 +15,7 @@ export default function Education({ items }) {
         {items?.map((item, index) => (
           <div
             key={item.id || index}
-            className="w-full bg-[#0b131b]/80 border border-white/5 rounded-xl p-3 md:p-5 text-left transition-all duration-300 hover:border-white/10 hover:bg-[#0f1720]"
+            className="w-full bg-[#0b131b]/80 border border-white/5 rounded-xl p-3 md:p-5 text-left transition-all duration-300 hover:bg-[#0f1720] hover:border-pink-500/30"
           >
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">

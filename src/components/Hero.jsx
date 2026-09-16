@@ -83,16 +83,17 @@ export default function Hero({ data }) {
 
           <a
             href={data.links?.cv || "#"}
-            className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-white font-medium text-sm transition-all duration-300 hover:scale-[1.03] active:scale-95 bg-gradient-to-r from-[#8b4556] via-[#a34e60] to-[#6b3548] shadow-[0_0_20px_rgba(163,78,96,0.35)] hover:shadow-[0_0_30px_rgba(163,78,96,0.55)] border border-pink-300/20"
+            className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-white font-medium text-sm transition-all duration-300 hover:scale-[1.03] active:scale-95 bg-gradient-to-r from-[#FC64B6]/80 via-[#EB83AA] to-[#FC64B6]/80 shadow-[0_0_25px_rgba(223,146,162,0.3)] hover:shadow-[0_0_35px_rgba(223,146,162,0.5)] border border-pink-300/20"
           >
-            <span>Download CV</span>
+            <i className="fa-solid fa-download"></i>
+            <span>CV</span>
           </a>
 
           <a
             href={data.links?.github || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200 text-sm"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 hover:border-pink-500/30 transition-all duration-200 text-sm"
           >
             <i class="fa-brands fa-github"></i>
             <span className="font-mono text-xs">GitHub</span>
@@ -102,7 +103,7 @@ export default function Hero({ data }) {
             href={data.links?.linkedin || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200 text-sm"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 hover:border-pink-500/30 transition-all duration-200 text-sm"
           >
             <i class="fa-brands fa-linkedin"></i>
             <span className="font-mono text-xs">LinkedIn</span>
