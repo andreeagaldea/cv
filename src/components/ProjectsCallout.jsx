@@ -8,8 +8,8 @@ export default function ProjectsCallout({
   onButtonClick
 }) {
   return (
-    <section className="w-full max-w-5xl mx-auto py-12 px-4">
-      <div className="relative w-full bg-[#0b131b]/90 border border-white/5 rounded-3xl p-8 sm:p-12 text-center flex flex-col items-center justify-center overflow-hidden">
+    <section className="w-full max-w-5xl mx-auto py-12 px-2 md:px-4">
+      <div className="relative w-full bg-[#0b131b]/90 border border-white/5 rounded-3xl p-4 sm:p-12 text-center flex flex-col items-center justify-center overflow-hidden">
 
 
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2a1722]/60 border border-pink-500/20 text-pink-300 font-mono text-xs font-semibold mb-6 tracking-wide">

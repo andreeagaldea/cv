@@ -51,11 +51,14 @@ export const cvData = {
       company: "MindTreatStudios",
       period: "September 2017 - March 2020",
       location: "București, România",
-      description: [
-        "Career Pivot & Tech Adaptability: Successfully transitioned from mobile development to web applications, quickly mastering new web technologies.",
+      "description": [
+        "Career Pivot: Transitioned successfully from mobile development to the field of web applications.",
+        "Tech Adaptability: Demonstrated agility by quickly learning and integrating new web technologies.",
         "Web Development: Contributed to the active development of multiple responsive client websites.",
         "Cross-Functional Teamwork: Partnered closely with designers and backend developers on a daily basis.",
-        "Feature Implementation & Quality: Deployed high-performance features, resolved critical frontend bugs, and participated in testing and debugging."
+        "Feature Implementation: Deployed visually appealing and functional features optimized for high performance.",
+        "Issue Resolution: Resolved critical frontend bugs to enhance application functionality and user experience.",
+        "Quality Assurance: Actively participated in continuous testing and debugging processes to ensure error-free code."
       ],
       tags: ["Frontend", "VueJs", "JavaScript", "Responsive Design", "Cross-Functional Teamwork"]
     },

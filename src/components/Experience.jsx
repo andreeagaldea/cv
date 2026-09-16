@@ -1,8 +1,8 @@
 export default function Experience({ items }) {
   return (
-    <section className="w-full max-w-5xl mx-auto py-12 px-4">
+    <section className="w-full max-w-5xl mx-auto py-12 px-2 md:px-4">
 
-      <div className="space-y-1 text-left mb-8">
+      <div className="space-y-1 text-left mb-4 md:mb-8">
         <span className="text-[10px] uppercase tracking-widest text-pink-400 font-mono font-semibold">
           CAREER & PATHWAY
         </span>
@@ -15,7 +15,7 @@ export default function Experience({ items }) {
         {items?.map((item) => (
           <div
             key={item.id}
-            className="w-full bg-[#0b131b]/80 border border-white/5 rounded-2xl p-6 sm:p-8 text-left transition-all duration-300 hover:border-white/10 hover:bg-[#0f1720]"
+            className="w-full bg-[#0b131b]/80 border border-white/5 rounded-2xl p-4 md:p-6 sm:p-8 text-left transition-all duration-300 hover:border-white/10 hover:bg-[#0f1720]"
           >
 
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
@@ -56,7 +56,7 @@ export default function Experience({ items }) {
                   {item.description.map((descPoint, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <span className="text-pink-400 mt-1.5 text-xs">▹</span>
-                      <span>{descPoint}</span>
+                      <span className="text-xs md:text-sm">{descPoint}</span>
                     </li>
                   ))}
                 </ul>

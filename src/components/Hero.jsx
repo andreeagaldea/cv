@@ -12,7 +12,7 @@ export default function Hero({ data }) {
             <img
               src={data.avatar}
               alt={`${data.name} - ${data.title}`}
-              className="w-full h-full object-cover object-center scale-100 group-hover:scale-105 transition duration-500 ease-out"
+              className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition duration-500 ease-out"
             />
           </div>
 

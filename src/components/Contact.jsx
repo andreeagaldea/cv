@@ -3,9 +3,9 @@ export default function Contact({
   location = "Bucharest / Remote"
 }) {
   return (
-    <section className="w-full max-w-5xl mx-auto py-12 px-4">
+    <section className="w-full max-w-5xl mx-auto py-12 px-2 md:px-4">
 
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 text-left">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-4 md:mb-8 text-left">
         <div className="space-y-1">
           <span className="text-[10px] uppercase tracking-widest text-pink-400 font-mono font-semibold">
             DIRECT CONNECTION
@@ -40,12 +40,12 @@ export default function Contact({
         </div>
       </div>
 
-      <div className="w-full bg-[#0b131b]/80 border border-white/5 rounded-3xl p-6 sm:p-10 text-left">
+      <div className="w-full bg-[#0b131b]/80 border border-white/5 rounded-3xl p-4 md:p-6 sm:p-10 text-left">
         <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-2">
 
-            <div className="space-y-2">
+            <div className="space-y-1">
               <label className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400">
                 FULL NAME
               </label>
@@ -57,7 +57,7 @@ export default function Contact({
               />
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1">
               <label className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400">
                 EMAIL
               </label>
@@ -71,7 +71,7 @@ export default function Contact({
 
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400">
               SUBJECT
             </label>
@@ -83,7 +83,7 @@ export default function Contact({
             />
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1">
             <label className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400">
               MESSAGE
             </label>
@@ -95,7 +95,7 @@ export default function Contact({
             />
           </div>
 
-          <div className="flex justify-end pt-2">
+          <div className="flex justify-end ">
             <button
               type="button"
               disabled

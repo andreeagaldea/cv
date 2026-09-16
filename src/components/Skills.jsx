@@ -10,9 +10,9 @@ export default function Skills({ skills }) {
   const nextRef = useRef(null);
 
   return (
-    <section className="w-full max-w-5xl mx-auto py-12 px-4 min-w-0">
+    <section className="w-full max-w-5xl mx-auto py-12 px-2 md:px-4 min-w-0">
 
-      <div className="flex items-end justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-4 md:mb-8">
         <div className="space-y-1 text-left">
           <span className="text-[10px] uppercase tracking-widest text-pink-400 font-mono font-semibold">
             CORE ARSENAL
@@ -25,7 +25,7 @@ export default function Skills({ skills }) {
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 self-start sm:self-auto">
           <button
             ref={prevRef}
             aria-label="Previous"
@@ -60,7 +60,7 @@ export default function Skills({ skills }) {
           }}
           breakpoints={{
             0: {
-              slidesPerView: 1,
+              slidesPerView: 2,
             },
             640: {
               slidesPerView: 3,
@@ -83,9 +83,9 @@ export default function Skills({ skills }) {
                 )}
 
                 <div
-                  className={`flex-1 w-full flex flex-col items-center justify-center text-center p-6 rounded-2xl transition-all duration-300 border ${item.active
-                      ? 'bg-[#0f1720] border-pink-500/40 shadow-[0_10px_25px_rgba(236,72,153,0.15)]'
-                      : 'bg-[#0b131b]/80 border-white/5 hover:border-white/20 hover:bg-[#0f1720]'
+                  className={`flex-1 w-full flex flex-col items-center justify-center text-center p-3 md:p-6 rounded-2xl transition-all duration-300 border ${item.active
+                    ? 'bg-[#0f1720] border-pink-500/40 shadow-[0_10px_25px_rgba(236,72,153,0.15)]'
+                    : 'bg-[#0b131b]/80 border-white/5 hover:border-white/20 hover:bg-[#0f1720]'
                     }`}
                 >
                   <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl mb-3 text-white font-bold font-mono">
