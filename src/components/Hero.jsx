@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { createScope, createTimeline } from 'animejs';
+import { createScope, createTimeline, steps } from 'animejs';
 
 export default function Hero({ data }) {
   const root = useRef(null);
@@ -25,7 +25,7 @@ export default function Hero({ data }) {
       tl.add(state, {
         count: totalChars,
         duration: typeDuration,
-        ease: `steps(${totalChars})`,
+        ease: steps(totalChars),
         onUpdate: () => {
           if (textRef.current) {
             textRef.current.textContent = fullText.slice(0, Math.round(state.count));
@@ -37,7 +37,7 @@ export default function Hero({ data }) {
           {
             count: 0,
             duration: deleteDuration,
-            ease: `steps(${totalChars})`,
+            ease: steps(totalChars),
             onUpdate: () => {
               if (textRef.current) {
                 textRef.current.textContent = fullText.slice(0, Math.round(state.count));
@@ -82,7 +82,7 @@ export default function Hero({ data }) {
       <div className="lg:col-span-8 flex flex-col items-center lg:items-start gap-4 py-5">
 
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-pink-300">
-          <span>{data.badge || "Frontend Developer & Cats Lover"} <i class="fa-solid fa-cat"></i> </span>
+          <span>{data.badge || "Frontend Developer & Cats Lover"} <i className="fa-solid fa-cat"></i> </span>
         </div>
 
         <div className="space-y-1 text-center lg:text-left">
@@ -130,7 +130,7 @@ export default function Hero({ data }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 hover:border-pink-500/30 transition-all duration-200 text-sm"
           >
-            <i class="fa-brands fa-github"></i>
+            <i className="fa-brands fa-github"></i>
             <span className="font-mono text-xs">GitHub</span>
           </a>
 
@@ -140,7 +140,7 @@ export default function Hero({ data }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 hover:border-pink-500/30 transition-all duration-200 text-sm"
           >
-            <i class="fa-brands fa-linkedin"></i>
+            <i className="fa-brands fa-linkedin"></i>
             <span className="font-mono text-xs">LinkedIn</span>
           </a>
 

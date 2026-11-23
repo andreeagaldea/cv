@@ -12,7 +12,7 @@ export default function Projects() {
     <div className="min-h-screen text-gray-200 px-4 py-8 sm:px-8 lg:px-16 font-sans">
       <div className="max-w-6xl mx-auto space-y-12">
 
-        <div className="sticky top-0 z-50 py-4 bg-[#0b0f17]/80 backdrop-blur-md border-b border-white/5 -mx-4 px-4 sm:-mx-8 sm:px-8 lg:-mx-16 lg:px-16 mb-6">
+        <div className="sticky top-0 z-50 py-4  backdrop-blur-md border-b border-white/5 -mx-4 px-4 sm:-mx-8 sm:px-8 lg:-mx-16 lg:px-16 mb-6">
         <div className="max-w-6xl mx-auto">
           <Link
             to="/"
