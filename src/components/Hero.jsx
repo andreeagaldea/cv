@@ -47,33 +47,14 @@ export default function Hero({ data }) {
             <span className="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
             <span className="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span>
             <span className="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
-            <span className="text-xs text-white/40 ml-2 font-mono">
-              {data.codeSnippet?.fileName || "developer.js"}
-            </span>
+            <span className="text-xs text-white/40 ml-2 font-mono">developer.js</span>
           </div>
-
           <pre className="font-mono text-sm leading-relaxed overflow-x-auto text-gray-200 jetbrains-mono-font">
             <code>
               <span className="text-pink-400">const</span> <span className="text-emerald-300">developer</span> = &#123;<br />
-              &nbsp;&nbsp;<span className="text-gray-400">name:</span> <span className="text-amber-200">"{data.name}"</span>,<br />
-              &nbsp;&nbsp;<span className="text-gray-400">role:</span> <span className="text-amber-200">"{data.title}"</span>,<br />
-              {data.codeSnippet?.passions && (
-                <>
-                  &nbsp;&nbsp;<span className="text-gray-400">passion:</span> [<br />
-                  {data.codeSnippet.passions.map((p, idx) => (
-                    <React.Fragment key={idx}>
-                      &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-amber-200">"{p}"</span>{idx < data.codeSnippet.passions.length - 1 ? ',' : ''}<br />
-                    </React.Fragment>
-                  ))}
-                  &nbsp;&nbsp;],<br />
-                </>
-              )}
-              &nbsp;&nbsp;<span className="text-gray-400">status:</span> <span className="text-amber-200">"{data.codeSnippet?.statusText || "Available for web opportunities"}"</span>,<br />
-              {data.codeSnippet?.codePhrase && (
-                <>
-                  &nbsp;&nbsp;<span className="text-gray-400">code:</span> () =&gt; <span className="text-amber-200">"{data.codeSnippet.codePhrase}"</span><br />
-                </>
-              )}
+              &nbsp;&nbsp;<span className="text-gray-400">name:</span> <span className="text-amber-200">"{data.bioCode?.name?.replace(/.*"(.*)".*/, '$1') || "Andreea Aldea"}"</span>,<br />
+              &nbsp;&nbsp;<span className="text-gray-400">role:</span> <span className="text-amber-200">"{data.bioCode?.role?.replace(/.*"(.*)".*/, '$1') || "Frontend Developer"}"</span>,<br />
+              &nbsp;&nbsp;<span className="text-gray-400">status:</span> <span className="text-amber-200">"{data.bioCode?.status?.replace(/.*"(.*)".*/, '$1') || "Available for web opportunities"}"</span><br />
               &#125;;
             </code>
           </pre>

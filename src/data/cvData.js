@@ -1,12 +1,12 @@
 export const cvData = {
   hero: {
     name: "Andreea Aldea",
-    title: "Frontend Developer",
+    title: "Full Stack Web Developer",
     avatar: "https://avatars.githubusercontent.com/u/23040139?v=4",
     bioCode: {
       user: "const developer = {",
       name: '  name: "Andreea Aldea",',
-      role: '  role: "Frontend Developer",',
+      role: '  role: "UI-Driven Full-Stack Web Developer",',
       status: '  status: "Available for web / full-stack opportunities"',
       end: "};"
     },
