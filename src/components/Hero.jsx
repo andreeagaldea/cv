@@ -1,6 +1,59 @@
+import { useEffect, useRef } from 'react';
+import { createScope, createTimeline } from 'animejs';
+
 export default function Hero({ data }) {
+  const root = useRef(null);
+  const scope = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const fullText = data?.title || '';
+    if (!fullText || !textRef.current) return;
+
+    const totalChars = fullText.length;
+    const state = { count: 0 };
+
+    const typeDuration = totalChars * 80;
+    const deleteDuration = totalChars * 40;
+
+    scope.current = createScope({ root }).add(() => {
+      const tl = createTimeline({
+        loop: true,
+        loopDelay: 400,
+      });
+
+      tl.add(state, {
+        count: totalChars,
+        duration: typeDuration,
+        ease: `steps(${totalChars})`,
+        onUpdate: () => {
+          if (textRef.current) {
+            textRef.current.textContent = fullText.slice(0, Math.round(state.count));
+          }
+        },
+      })
+        .add(
+          state,
+          {
+            count: 0,
+            duration: deleteDuration,
+            ease: `steps(${totalChars})`,
+            onUpdate: () => {
+              if (textRef.current) {
+                textRef.current.textContent = fullText.slice(0, Math.round(state.count));
+              }
+            },
+          },
+          '+=1800'
+        );
+    });
+
+    return () => scope.current?.revert();
+  }, [data?.title]);
+
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full max-w-5xl mx-auto py-10 md:my-5">
+    <section ref={root}
+      className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full max-w-5xl mx-auto py-10 md:my-5">
 
       <div className="lg:col-span-4 flex flex-col items-center justify-center py-5">
         <div className="relative group">
@@ -36,8 +89,9 @@ export default function Hero({ data }) {
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white outfit-font pb-3">
             {data.name}
           </h1>
-          <p className="text-xl sm:text-2xl text-cyan-400 font-medium jetbrains-mono-font pb-3">
-            {data.title}
+          <p className="text-xl sm:text-2xl text-cyan-400 font-medium jetbrains-mono-font pb-3 min-h-[2.5rem]">
+            <span ref={textRef}></span>
+            <span className="inline-block w-[2px] h-5 sm:h-6 bg-cyan-400 ml-1 align-middle animate-pulse" />
           </p>
         </div>
 
