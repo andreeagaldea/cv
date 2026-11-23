@@ -32,6 +32,12 @@
 
 body {
   background-color: var(--color-brand-bg);
+  background-image: linear-gradient(rgba(11, 19, 27, 0.55), rgba(11, 19, 27, 0.55)), url('/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   color: var(--color-brand-light);
   font-family: system-ui, -apple-system, sans-serif;
   min-height: 100vh;
