@@ -1,10 +1,39 @@
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+
 export default function Contact({
   email = "andreeagaldea@gmail.com",
   location = "Bucharest / Remote"
 }) {
+  const formRef = useRef(null);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formRef.current || status === 'sending') return;
+
+    setStatus('sending');
+
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        }
+      );
+
+      setStatus('success');
+      formRef.current.reset();
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setStatus('error');
+    }
+  };
+
   return (
     <section className="w-full max-w-5xl mx-auto py-12 px-2 md:px-4">
-
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-4 md:mb-8 text-left">
         <div className="space-y-1">
           <span className="text-[10px] uppercase tracking-widest text-pink-400 font-mono font-semibold">
@@ -17,7 +46,6 @@ export default function Contact({
             Send a thought, a proposal, or a technical challenge.
           </p>
         </div>
-
 
         <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
           <a
@@ -41,76 +69,104 @@ export default function Contact({
       </div>
 
       <div className="w-full bg-[#0b131b]/80 border border-white/5 rounded-3xl p-4 md:p-6 sm:p-10 text-left">
-        <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
-
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-2">
-
             <div className="space-y-1">
-              <label className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400">
+              <label
+                htmlFor="contact-name"
+                className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400"
+              >
                 FULL NAME
               </label>
               <input
+                id="contact-name"
+                name="name"
                 type="text"
-                disabled
+                required
                 placeholder="e.g. Jane Doe"
-                className="w-full bg-[#070d14] border border-white/5 rounded-xl px-4 py-3.5 font-mono text-sm text-gray-300 placeholder-gray-600 focus:outline-none cursor-not-allowed opacity-70"
+                className="w-full bg-[#070d14] border border-white/10 focus:border-pink-400/50 rounded-xl px-4 py-3.5 font-mono text-sm text-gray-200 placeholder-gray-600 focus:outline-none transition-colors"
               />
             </div>
 
             <div className="space-y-1">
-              <label className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400">
+              <label
+                htmlFor="contact-email"
+                className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400"
+              >
                 EMAIL
               </label>
               <input
+                id="contact-email"
+                name="email"
                 type="email"
-                disabled
+                required
                 placeholder="jane.doe@example.com"
-                className="w-full bg-[#070d14] border border-white/5 rounded-xl px-4 py-3.5 font-mono text-sm text-gray-300 placeholder-gray-600 focus:outline-none cursor-not-allowed opacity-70"
+                className="w-full bg-[#070d14] border border-white/10 focus:border-pink-400/50 rounded-xl px-4 py-3.5 font-mono text-sm text-gray-200 placeholder-gray-600 focus:outline-none transition-colors"
               />
             </div>
-
           </div>
 
           <div className="space-y-1">
-            <label className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400">
+            <label
+              htmlFor="contact-subject"
+              className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400"
+            >
               SUBJECT
             </label>
             <input
+              id="contact-subject"
+              name="subject"
               type="text"
-              disabled
+              required
               placeholder="Project Proposal / Front-End Collaboration"
-              className="w-full bg-[#070d14] border border-white/5 rounded-xl px-4 py-3.5 font-mono text-sm text-gray-300 placeholder-gray-600 focus:outline-none cursor-not-allowed opacity-70"
+              className="w-full bg-[#070d14] border border-white/10 focus:border-pink-400/50 rounded-xl px-4 py-3.5 font-mono text-sm text-gray-200 placeholder-gray-600 focus:outline-none transition-colors"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400">
+            <label
+              htmlFor="contact-message"
+              className="block text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400"
+            >
               MESSAGE
             </label>
             <textarea
+              id="contact-message"
+              name="message"
               rows={4}
-              disabled
+              required
               placeholder="Detail your vision or project requirements..."
-              className="w-full bg-[#070d14] border border-white/5 rounded-xl px-4 py-3.5 font-mono text-sm text-gray-300 placeholder-gray-600 focus:outline-none cursor-not-allowed opacity-70 resize-none"
+              className="w-full bg-[#070d14] border border-white/10 focus:border-pink-400/50 rounded-xl px-4 py-3.5 font-mono text-sm text-gray-200 placeholder-gray-600 focus:outline-none transition-colors resize-none"
             />
           </div>
 
-          <div className="flex justify-end ">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="font-mono text-xs">
+              {status === 'success' && (
+                <p className="text-emerald-400">
+                  Message sent! I&apos;ll get back to you soon.
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="text-rose-400">
+                  Something went wrong. Please try again or email me directly.
+                </p>
+              )}
+            </div>
+
             <button
-              type="button"
-              disabled
-              className="relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white/80 font-medium text-sm bg-gradient-to-r from-[#FC64B6] via-[#EB83AA] to-[#FC64B6] border border-pink-300/10 cursor-not-allowed opacity-60 shadow-[0_0_20px_rgba(223,146,162,0.15)]"
+              type="submit"
+              disabled={status === 'sending'}
+              className="relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-white font-medium text-sm bg-gradient-to-r from-[#FC64B6] via-[#EB83AA] to-[#FC64B6] border border-pink-300/20 hover:brightness-110 disabled:opacity-60 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(223,146,162,0.25)] transition-all cursor-pointer self-end sm:self-auto"
             >
-              <span>Send Message</span>
+              <span>{status === 'sending' ? 'Sending...' : 'Send Message'}</span>
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
           </div>
-
         </form>
       </div>
-
     </section>
   );
 }
